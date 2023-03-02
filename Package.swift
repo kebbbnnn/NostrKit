@@ -14,7 +14,7 @@ let package = Package(
         .executable(name: "example-writer", targets: ["ExampleWriter"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/GigaBitcoin/secp256k1.swift", exact: .init(stringLiteral: "0.8.1")),
+        .package(url: "https://github.com/jb55/secp256k1.swift.git", branch: "main"),
         .package(url: "https://github.com/apple/swift-crypto.git", exact: .init(stringLiteral: "2.1.0")),
     ],
     targets: [
