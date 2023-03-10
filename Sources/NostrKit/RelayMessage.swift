@@ -2,6 +2,7 @@ import Foundation
 
 public enum RelayMessage: Decodable {
     case event(SubscriptionId, Event)
+    case ok(String)
     case notice(String)
     case other([String])
     
@@ -17,6 +18,8 @@ public enum RelayMessage: Decodable {
             self = .event(subscriptionId, event)
         case "NOTICE":
             self = .notice(try container.decode(String.self))
+        case "OK":
+            self = .ok(try container.decodeIfPresent(String.self) ?? String())
         default:
             let remainingItemsCount = (container.count ?? 1) - 1
             let remainingItems = try (0..<remainingItemsCount).map { _ in try container.decode(String.self) }
