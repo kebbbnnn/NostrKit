@@ -26,7 +26,7 @@ public enum EventKind: Codable, Equatable {
         }
     }
     
-    var id: Int {
+    public var id: Int {
         switch self {
         case .setMetadata: return 0
         case .textNote: return 1
